@@ -14,7 +14,7 @@ class WelocmeScreenButtons extends StatelessWidget {
     return Positioned(
       left: 0,
       right: 0,
-      top: width * 1.1,
+      top: width * 1.2,
       child: const Padding(
         padding: EdgeInsets.symmetric(horizontal: 22),
         child: Column(
