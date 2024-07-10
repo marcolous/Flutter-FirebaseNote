@@ -7,6 +7,25 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:1062085519805:android:ab056cf07e19cbb6404ad4",
+        "android_client_info": {
+          "package_name": "com.example.firebase_note"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpSOPxxMV5SvvT4vuQx5kmYHm1mes_jSA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:1062085519805:android:ec35f0cba507186d404ad4",
         "android_client_info": {
           "package_name": "com.example.firebasenote"

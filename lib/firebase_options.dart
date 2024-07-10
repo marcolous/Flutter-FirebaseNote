@@ -25,15 +25,9 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -58,7 +52,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBpSOPxxMV5SvvT4vuQx5kmYHm1mes_jSA',
-    appId: '1:1062085519805:android:ec35f0cba507186d404ad4',
+    appId: '1:1062085519805:android:ab056cf07e19cbb6404ad4',
     messagingSenderId: '1062085519805',
     projectId: 'fir-note-a5e8f',
     storageBucket: 'fir-note-a5e8f.appspot.com',
@@ -72,4 +66,24 @@ class DefaultFirebaseOptions {
     storageBucket: 'fir-note-a5e8f.appspot.com',
     iosBundleId: 'com.example.firebaseNote',
   );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyDkema9QuHG-0eOxbjh3HWmmnjNGzT9D6A',
+    appId: '1:1062085519805:ios:b18e10ff0c84e9bd404ad4',
+    messagingSenderId: '1062085519805',
+    projectId: 'fir-note-a5e8f',
+    storageBucket: 'fir-note-a5e8f.appspot.com',
+    iosBundleId: 'com.example.firebaseNote',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyDuQCxTEF9xS7iUNNiDPaxOnyPAxGN-bTM',
+    appId: '1:1062085519805:web:8833d1db20288aaa404ad4',
+    messagingSenderId: '1062085519805',
+    projectId: 'fir-note-a5e8f',
+    authDomain: 'fir-note-a5e8f.firebaseapp.com',
+    storageBucket: 'fir-note-a5e8f.appspot.com',
+    measurementId: 'G-P6N9QJLQ3E',
+  );
+
 }
