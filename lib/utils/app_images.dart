@@ -9,4 +9,5 @@ class AppImages {
   );
   static SvgPicture notesSvg = SvgPicture.asset("assets/images/notes.svg");
   static SvgPicture notes2Svg = SvgPicture.asset("assets/images/notes2.svg");
+  static SvgPicture googleSvg = SvgPicture.asset("assets/images/google.svg");
 }

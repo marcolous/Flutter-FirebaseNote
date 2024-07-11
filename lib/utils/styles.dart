@@ -1,8 +1,25 @@
-
 import 'package:firebase_note/utils/screen_size.dart';
 import 'package:flutter/material.dart';
 
 class Style {
+  static TextStyle style14(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveFontSize(context, fontSize: 14),
+      fontWeight: FontWeight.w600,
+      fontFamily: 'Urbanist',
+      color: const Color(0xff8391A1),
+    );
+  }
+
+  static TextStyle style15Medium(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveFontSize(context, fontSize: 15),
+      fontWeight: FontWeight.w500,
+      fontFamily: 'Urbanist',
+      color: const Color(0xff8391A1),
+    );
+  }
+
   static TextStyle style15(BuildContext context) {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 15),
