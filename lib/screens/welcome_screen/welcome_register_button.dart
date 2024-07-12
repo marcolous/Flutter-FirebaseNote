@@ -1,4 +1,4 @@
-import 'package:firebase_note/screens/register_screen/register_screen.dart';
+import 'package:firebase_note/utils/routes.dart';
 import 'package:firebase_note/utils/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -12,10 +12,7 @@ class WelcomeRegisterButton extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 6,
       child: ElevatedButton(
-        onPressed: () {
-          Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => const RegisterScreen()));
-        },
+        onPressed: () => Navigator.of(context).pushNamed(Routes.kRegisterScreen),
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),

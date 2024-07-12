@@ -1,7 +1,7 @@
 import 'package:firebase_note/customs/app_icon.dart';
 import 'package:firebase_note/customs/custom_button.dart';
-import 'package:firebase_note/screens/login_screen/login_screen.dart';
 import 'package:firebase_note/screens/welcome_screen/welcome_register_button.dart';
+import 'package:firebase_note/utils/routes.dart';
 import 'package:firebase_note/utils/screen_size.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -25,11 +25,8 @@ class WelocmeScreenButtons extends StatelessWidget {
             const Gap(45),
             CustomButton(
               title: 'Login',
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const LoginScreen(),
-                ));
-              },
+              onPressed: () =>
+                  Navigator.of(context).pushNamed(Routes.kLoginScreen),
             ),
             const Gap(15),
             const WelcomeRegisterButton()

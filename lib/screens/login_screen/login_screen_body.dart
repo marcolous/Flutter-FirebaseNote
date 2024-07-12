@@ -6,7 +6,7 @@ import 'package:firebase_note/customs/custom_row.dart';
 import 'package:firebase_note/customs/custom_text_field.dart';
 import 'package:firebase_note/customs/password_text_field.dart';
 import 'package:firebase_note/screens/login_screen/forgot_password_widget.dart';
-import 'package:firebase_note/screens/register_screen/register_screen.dart';
+import 'package:firebase_note/utils/routes.dart';
 import 'package:firebase_note/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -45,14 +45,12 @@ class LoginScreenBody extends StatelessWidget {
             const Gap(22),
             const CustomGoogleButton(),
             CustomRow(
-              title: 'Don’t have an account? ',
-              subTitle: 'Register Now',
-              onTap: () => Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const RegisterScreen(),
-                ),
-              ),
-            )
+                title: 'Don’t have an account? ',
+                subTitle: 'Register Now',
+                onTap: () {
+                  Navigator.of(context).pop();
+                  Navigator.of(context).pushNamed(Routes.kRegisterScreen);
+                })
           ],
         ),
       ),
