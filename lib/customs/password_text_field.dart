@@ -1,3 +1,5 @@
+// ignore_for_file: body_might_complete_normally_nullable
+
 import 'package:firebase_note/utils/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -11,11 +13,18 @@ class PasswordTextField extends StatefulWidget {
 }
 
 class _PasswordTextFieldState extends State<PasswordTextField> {
-  bool showPassword = false;
+  bool hidePassword = true;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: (value) {
+        if (value!.isEmpty) {
+          return 'Required field';
+        }
+      },
+      autocorrect: false,
+      obscureText: hidePassword,
       controller: widget.controller,
       decoration: InputDecoration(
         hintText: widget.hintText,
@@ -24,15 +33,17 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
         fillColor: const Color(0xffF7F8F9),
         focusedBorder: borderDecoration(),
         enabledBorder: borderDecoration(),
+        errorBorder: errBorderDecoration(),
+        focusedErrorBorder: errBorderDecoration(),
         suffixIcon: IconButton(
           onPressed: () {
             setState(() {
-              showPassword = !showPassword;
+              hidePassword = !hidePassword;
             });
           },
-          icon: showPassword
-              ? const Icon(Icons.visibility_off_rounded)
-              : const Icon(Icons.visibility_rounded),
+          icon: hidePassword
+              ? const Icon(Icons.visibility_rounded)
+              : const Icon(Icons.visibility_off_rounded),
         ),
         contentPadding: const EdgeInsets.all(20),
       ),
@@ -44,6 +55,16 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
       borderRadius: BorderRadius.circular(12),
       borderSide: const BorderSide(
         color: Color(0xffE8ECF4),
+        width: 2,
+      ),
+    );
+  }
+
+  OutlineInputBorder errBorderDecoration() {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(12),
+      borderSide: const BorderSide(
+        color: Colors.red,
         width: 2,
       ),
     );

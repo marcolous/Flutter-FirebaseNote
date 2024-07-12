@@ -1,14 +1,22 @@
+// ignore_for_file: body_might_complete_normally_nullable
+
 import 'package:firebase_note/utils/styles.dart';
 import 'package:flutter/material.dart';
 
-class CustomTextField extends StatelessWidget {
-  const CustomTextField(
+class EmailTextField extends StatelessWidget {
+  const EmailTextField(
       {super.key, required this.hintText, required this.controller});
   final String hintText;
   final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: (value) {
+        if (value!.isEmpty) {
+          return 'Required field';
+        }
+      },
+      keyboardType: TextInputType.emailAddress,
       controller: controller,
       decoration: InputDecoration(
         hintText: hintText,
@@ -17,6 +25,8 @@ class CustomTextField extends StatelessWidget {
         fillColor: const Color(0xffF7F8F9),
         focusedBorder: borderDecoration(),
         enabledBorder: borderDecoration(),
+        errorBorder: errBorderDecoration(),
+        focusedErrorBorder: errBorderDecoration(),
         contentPadding: const EdgeInsets.all(20),
       ),
     );
@@ -27,6 +37,16 @@ class CustomTextField extends StatelessWidget {
       borderRadius: BorderRadius.circular(12),
       borderSide: const BorderSide(
         color: Color(0xffE8ECF4),
+        width: 2,
+      ),
+    );
+  }
+
+  OutlineInputBorder errBorderDecoration() {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(12),
+      borderSide: const BorderSide(
+        color: Colors.red,
         width: 2,
       ),
     );
