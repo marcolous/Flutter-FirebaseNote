@@ -2,13 +2,13 @@ import 'package:firebase_note/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key});
-
+  const CustomTextField({super.key, required this.hintText});
+  final String hintText;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
-        hintText: 'Enter your email',
+        hintText: hintText,
         hintStyle: Style.style15Medium(context),
         filled: true,
         fillColor: const Color(0xffF7F8F9),
