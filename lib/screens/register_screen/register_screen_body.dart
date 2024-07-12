@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_note/customs/custom_back_button.dart';
 import 'package:firebase_note/customs/custom_button.dart';
 import 'package:firebase_note/customs/custom_google_button.dart';
@@ -10,10 +11,29 @@ import 'package:firebase_note/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-class RegisterScreenBody extends StatelessWidget {
+class RegisterScreenBody extends StatefulWidget {
   const RegisterScreenBody({
     super.key,
   });
+
+  @override
+  State<RegisterScreenBody> createState() => _RegisterScreenBodyState();
+}
+
+class _RegisterScreenBodyState extends State<RegisterScreenBody> {
+  final TextEditingController _userName = TextEditingController();
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _passWord = TextEditingController();
+  final TextEditingController _confirmPass = TextEditingController();
+
+  @override
+  void dispose() {
+    _userName.dispose();
+    _email.dispose();
+    _passWord.dispose();
+    _confirmPass.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,17 +49,34 @@ class RegisterScreenBody extends StatelessWidget {
               style: Style.style30(context),
             ),
             const Gap(32),
-            const CustomTextField(hintText: 'Username'),
+            CustomTextField(hintText: 'Username', controller: _userName),
             const Gap(12),
-            const CustomTextField(hintText: 'Email'),
+            CustomTextField(hintText: 'Email', controller: _email),
             const Gap(12),
-            const PasswordTextField(hintText: 'Password'),
+            PasswordTextField(hintText: 'Password', controller: _passWord),
             const Gap(12),
-            const PasswordTextField(hintText: 'Confirm password'),
+            PasswordTextField(
+                hintText: 'Confirm password', controller: _confirmPass),
             const Gap(30),
             CustomButton(
               title: 'Register',
-              onPressed: () {},
+              onPressed: () async {
+                try {
+                  final credential = await FirebaseAuth.instance
+                      .createUserWithEmailAndPassword(
+                    email: _email.text,
+                    password: _passWord.text,
+                  );
+                } on FirebaseAuthException catch (e) {
+                  if (e.code == 'weak-password') {
+                    print('The password provided is too weak.');
+                  } else if (e.code == 'email-already-in-use') {
+                    print('The account already exists for that email.');
+                  }
+                } catch (e) {
+                  print(e);
+                }
+              },
             ),
             const Gap(35),
             const CustomOrWith(title: 'Or Register with'),

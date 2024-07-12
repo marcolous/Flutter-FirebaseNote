@@ -11,10 +11,25 @@ import 'package:firebase_note/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-class LoginScreenBody extends StatelessWidget {
+class LoginScreenBody extends StatefulWidget {
   const LoginScreenBody({
     super.key,
   });
+
+  @override
+  State<LoginScreenBody> createState() => _LoginScreenBodyState();
+}
+
+class _LoginScreenBodyState extends State<LoginScreenBody> {
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _passWord = TextEditingController();
+
+  @override
+  void dispose() {
+    _email.dispose();
+    _passWord.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +45,10 @@ class LoginScreenBody extends StatelessWidget {
               style: Style.style30(context),
             ),
             const Gap(32),
-            const CustomTextField(hintText: 'Enter your email'),
+            CustomTextField(hintText: 'Enter your email', controller: _email),
             const Gap(15),
-            const PasswordTextField(hintText: 'Enter your Password'),
+            PasswordTextField(
+                hintText: 'Enter your Password', controller: _passWord),
             const Gap(15),
             const ForgotPasswordWidget(),
             const Gap(30),
@@ -45,7 +61,7 @@ class LoginScreenBody extends StatelessWidget {
             const Gap(22),
             const CustomGoogleButton(),
             CustomRow(
-                title: 'Don’t have an account? ',
+                title: 'Don\'t have an account? ',
                 subTitle: 'Register Now',
                 onTap: () {
                   Navigator.of(context).pop();

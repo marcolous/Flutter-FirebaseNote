@@ -2,8 +2,10 @@ import 'package:firebase_note/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class PasswordTextField extends StatefulWidget {
-  const PasswordTextField({super.key, required this.hintText});
+  const PasswordTextField(
+      {super.key, required this.hintText, required this.controller});
   final String hintText;
+  final TextEditingController controller;
   @override
   State<PasswordTextField> createState() => _PasswordTextFieldState();
 }
@@ -14,6 +16,7 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: widget.controller,
       decoration: InputDecoration(
         hintText: widget.hintText,
         hintStyle: Style.style15Medium(context),
