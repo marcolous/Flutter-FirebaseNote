@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_note/screens/home_screen/home_screen.dart';
 import 'package:firebase_note/screens/login_screen/login_screen.dart';
 import 'package:firebase_note/screens/register_screen/register_screen.dart';
+import 'package:firebase_note/screens/reset_password/reset_password.dart';
 import 'package:firebase_note/screens/verification_screen/verification_screen.dart';
 import 'package:firebase_note/screens/welcome_screen/welcome_screen.dart';
 import 'package:firebase_note/utils/routes.dart';
@@ -33,6 +34,7 @@ class FirebaseNote extends StatelessWidget {
         Routes.kRegisterScreen: (context) => const RegisterScreen(),
         Routes.kHomeScreen: (context) => const HomeScreen(),
         Routes.kVerificationScreen: (context) => const VerificationScreen(),
+        Routes.kResetPasswordScreen: (context) => const ResetPassword(),
       },
     );
   }

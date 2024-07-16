@@ -83,6 +83,7 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
 
   void _login() async {
     if (formKey.currentState!.validate()) {
+      
       try {
         await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: _email.text,
