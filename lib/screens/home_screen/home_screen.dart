@@ -1,9 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_note/utils/routes.dart';
+import 'package:firebase_note/screens/home_screen/home_screen_body.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -11,17 +9,17 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: IconButton(
-            onPressed: () async {
-              GoogleSignIn googleSignIn = GoogleSignIn();
-              googleSignIn.disconnect();
-              await FirebaseAuth.instance.signOut();
-              Navigator.pushNamedAndRemoveUntil(
-                  context, Routes.kWelcomeScreen, (route) => false);
-            },
-            icon: const Icon(Icons.logout_outlined)),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: Colors.grey[200],
+        child: Icon(
+          Icons.add,
+          size: 32,
+          color: Colors.grey[900],
+        ),
       ),
+      backgroundColor: Colors.white,
+      body: const HomeScreenBody(),
     );
   }
 }

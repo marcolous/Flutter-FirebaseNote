@@ -38,10 +38,26 @@ class Style {
     );
   }
 
+  static TextStyle style20(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveFontSize(context, fontSize: 20),
+      fontWeight: FontWeight.w300,
+      fontFamily: 'Urbanist',
+    );
+  }
+
   static TextStyle style30(BuildContext context) {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 30),
       fontWeight: FontWeight.bold,
+      fontFamily: 'Urbanist',
+    );
+  }
+
+  static TextStyle style43(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveFontSize(context, fontSize: 43),
+      fontWeight: FontWeight.w600,
       fontFamily: 'Urbanist',
     );
   }

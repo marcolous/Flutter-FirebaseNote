@@ -10,4 +10,11 @@ class AppImages {
   static SvgPicture notesSvg = SvgPicture.asset("assets/images/notes.svg");
   static SvgPicture notes2Svg = SvgPicture.asset("assets/images/notes2.svg");
   static SvgPicture googleSvg = SvgPicture.asset("assets/images/google.svg");
+  static SvgPicture createNoteSvg =
+      SvgPicture.asset("assets/images/create_note.svg");
+
+  static Image createNotePng = Image.asset(
+    "assets/images/createNote.png",
+    fit: BoxFit.cover,
+  );
 }
