@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_note/utils/app_images.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class CustomGoogleButton extends StatelessWidget {
   const CustomGoogleButton({super.key});
@@ -9,7 +11,9 @@ class CustomGoogleButton extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 6,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          signInWithGoogle();
+        },
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
@@ -25,5 +29,21 @@ class CustomGoogleButton extends StatelessWidget {
         child: AppImages.googleSvg,
       ),
     );
+  }
+
+  Future signInWithGoogle() async {
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    if (googleUser == null) {
+      return;
+    }
+    final GoogleSignInAuthentication googleAuth =
+        await googleUser.authentication;
+
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+
+    return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 }
