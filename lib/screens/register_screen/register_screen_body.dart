@@ -97,7 +97,7 @@ class _RegisterScreenBodyState extends State<RegisterScreenBody> {
           email: _email.text,
           password: _passWord.text,
         );
-        Navigator.of(context).pushNamed(Routes.kHomeScreen);
+        Navigator.of(context).pushNamed(Routes.kVerificationScreen);
       } on FirebaseAuthException catch (e) {
         if (e.code == 'weak-password') {
           ShowSnackBar.show(context, 'The password provided is too weak.');

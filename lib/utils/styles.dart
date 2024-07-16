@@ -29,6 +29,15 @@ class Style {
     );
   }
 
+  static TextStyle style16(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveFontSize(context, fontSize: 16),
+      fontWeight: FontWeight.w500,
+      fontFamily: 'Urbanist',
+      color: const Color(0xff838BA1),
+    );
+  }
+
   static TextStyle style30(BuildContext context) {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 30),
