@@ -26,6 +26,28 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-
-  
+  Future<void> register(
+      {required String email, required String password}) async {
+    emit(RegisterLoading());
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      emit(RegisterSuccess());
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        emit(RegisterFailure(errMsg: 'The password provided is too weak.'));
+      } else if (e.code == 'email-already-in-use') {
+        emit(RegisterFailure(
+            errMsg: 'The account already exists for that email.'));
+      }else if (e.code == 'invalid-email') {
+        emit(RegisterFailure(errMsg: 'The email address is not valid.'));
+      } else {
+        emit(RegisterFailure(errMsg: e.message ?? 'An unknown error occurred.'));
+      }
+    } catch (e) {
+      emit(RegisterFailure(errMsg: e.toString()));
+    }
+  }
 }

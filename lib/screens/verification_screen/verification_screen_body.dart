@@ -60,6 +60,7 @@ class _VerificationScreenBodyState extends State<VerificationScreenBody> {
     try {
       FirebaseAuth.instance.currentUser!.sendEmailVerification();
       ShowSnackBar.show(context, 'Verification link has been sent');
+      if (!mounted) return;
       setState(() {
         isLoading = true;
       });
@@ -75,6 +76,7 @@ class _VerificationScreenBodyState extends State<VerificationScreenBody> {
     user = FirebaseAuth.instance.currentUser;
 
     if (user!.emailVerified) {
+      if (!mounted) return;
       setState(() {
         isLoading = false;
       });
