@@ -71,19 +71,24 @@ class _VerificationScreenBodyState extends State<VerificationScreenBody> {
   }
 
   void _checkEmailVerified() async {
-    User? user = FirebaseAuth.instance.currentUser;
-    await user!.reload();
-    user = FirebaseAuth.instance.currentUser;
-
-    if (user!.emailVerified) {
-      if (!mounted) return;
-      setState(() {
-        isLoading = false;
-      });
-      Navigator.of(context).pushNamed(Routes.kHomeScreen);
-    } else {
-      await Future.delayed(const Duration(seconds: 3));
-      _checkEmailVerified();
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+      if (user != null) {
+        await user.reload();
+        user = FirebaseAuth.instance.currentUser;
+      }
+      if (user!.emailVerified) {
+        if (!mounted) return;
+        setState(() {
+          isLoading = false;
+        });
+        Navigator.of(context).pushNamed(Routes.kHomeScreen);
+      } else {
+        await Future.delayed(const Duration(seconds: 3));
+        _checkEmailVerified();
+      }
+    } catch (e) {
+      ShowSnackBar.show(context, 'Error checking email verification: $e');
     }
   }
 }
