@@ -1,4 +1,3 @@
-import 'package:firebase_note/customs/custom_button.dart';
 import 'package:firebase_note/screens/create_note_screen/create_note_screen_app_bar.dart';
 import 'package:firebase_note/utils/styles.dart';
 import 'package:flutter/material.dart';
@@ -13,34 +12,22 @@ class CreateNoteScreenBody extends StatelessWidget {
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 0),
-        child: Column(
+        child: ListView(
+          shrinkWrap: true,
           children: [
-            ListView(
-              shrinkWrap: true,
-              children: [
-                const CreateNoteScreenAppBar(),
-                const Gap(30),
-                NoteTextField(
-                  hintText: 'Title',
-                  controller: title,
-                  hintStyle: Style.style48(context),
-                ),
-                NoteTextField(
-                  hintText: 'Type something...',
-                  controller: desc,
-                  hintStyle: Style.style23(context),
-                ),
-              ],
+            const CreateNoteScreenAppBar(),
+            const Gap(30),
+            NoteTextField(
+              hintText: 'Title',
+              controller: title,
+              hintStyle: Style.style48(context),
+              maxLines: 1,
             ),
-            const Expanded(child: Gap(1)),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: CustomButton(
-                title: 'Save',
-                onPressed: () {},
-              ),
+            NoteTextField(
+              hintText: 'Type something...',
+              controller: desc,
+              hintStyle: Style.style23(context),
             ),
-            const Gap(10),
           ],
         ),
       ),
@@ -54,11 +41,13 @@ class NoteTextField extends StatelessWidget {
     required this.hintText,
     required this.controller,
     required this.hintStyle,
+    this.maxLines,
   });
 
   final String hintText;
   final TextEditingController controller;
   final TextStyle hintStyle;
+  final int? maxLines;
 
   @override
   Widget build(BuildContext context) {
@@ -69,9 +58,10 @@ class NoteTextField extends StatelessWidget {
         }
         return null;
       },
-      keyboardType: TextInputType.emailAddress,
+      keyboardType: TextInputType.multiline,
       controller: controller,
       style: hintStyle.copyWith(color: Colors.black),
+      maxLines: maxLines,
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: hintStyle,

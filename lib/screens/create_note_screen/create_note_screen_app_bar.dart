@@ -1,7 +1,7 @@
 import 'package:firebase_note/customs/custom_back_button.dart';
 import 'package:firebase_note/customs/custom_default_button.dart';
-import 'package:firebase_note/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 class CreateNoteScreenAppBar extends StatelessWidget {
   const CreateNoteScreenAppBar({
@@ -13,20 +13,19 @@ class CreateNoteScreenAppBar extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           const CustomBackButton(),
-          Text(
-            'Untitled',
-            style: Style.style43(context),
-            textAlign: TextAlign.right,
-          ),
+          const Spacer(),
           CustomDefaultButton(
             iconData: Icons.edit,
-            onPressed: () {
-              
-            },
+            onPressed: () {},
+          ),
+          const Gap(10),
+          CustomDefaultButton(
+            iconData: Icons.save_rounded,
+            onPressed: () {},
           ),
         ],
       ),
