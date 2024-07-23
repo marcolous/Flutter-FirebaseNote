@@ -4,6 +4,7 @@ import 'package:firebase_note/screens/home_screen/home_screen.dart';
 import 'package:firebase_note/screens/login_screen/login_screen.dart';
 import 'package:firebase_note/screens/register_screen/register_screen.dart';
 import 'package:firebase_note/screens/reset_password/reset_password.dart';
+import 'package:firebase_note/screens/settings_screen/settings_screen.dart';
 import 'package:firebase_note/screens/verification_screen/verification_screen.dart';
 import 'package:firebase_note/screens/welcome_screen/welcome_screen.dart';
 import 'package:firebase_note/utils/routes.dart';
@@ -33,6 +34,9 @@ class FirebaseNote extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          scaffoldBackgroundColor: Colors.white,
+        ),
         home: FirebaseAuth.instance.currentUser == null
             ? const WelcomeScreen()
             : const HomeScreen(),
@@ -43,6 +47,7 @@ class FirebaseNote extends StatelessWidget {
           Routes.kHomeScreen: (context) => const HomeScreen(),
           Routes.kVerificationScreen: (context) => const VerificationScreen(),
           Routes.kResetPasswordScreen: (context) => const ResetPassword(),
+          Routes.kSettingsScreen: (context) => const SettingsScreen(),
         },
       ),
     );

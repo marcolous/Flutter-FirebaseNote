@@ -1,9 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_note/customs/custom_app_bar_button.dart';
 import 'package:firebase_note/utils/routes.dart';
 import 'package:firebase_note/utils/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 class HomeScreenAppBar extends StatelessWidget {
   const HomeScreenAppBar({
@@ -24,16 +22,14 @@ class HomeScreenAppBar extends StatelessWidget {
           icon: Icons.search_rounded,
         ),
         CustomAppBarButton(
-          onPressed: () {},
-          icon: Icons.error_rounded,
+          onPressed: () {
+            Navigator.pushNamed(context, Routes.kSettingsScreen);
+          },
+          icon: Icons.settings,
         ),
         IconButton(
             onPressed: () async {
-              GoogleSignIn googleSignIn = GoogleSignIn();
-              googleSignIn.disconnect();
-              await FirebaseAuth.instance.signOut();
-              Navigator.pushNamedAndRemoveUntil(
-                  context, Routes.kWelcomeScreen, (route) => false);
+              
             },
             icon: const Icon(Icons.logout_outlined)),
       ],

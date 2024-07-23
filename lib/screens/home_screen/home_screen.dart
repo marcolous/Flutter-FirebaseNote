@@ -18,7 +18,6 @@ class HomeScreen extends StatelessWidget {
           color: Colors.grey[900],
         ),
       ),
-      backgroundColor: Colors.white,
       body: const HomeScreenBody(),
     );
   }
