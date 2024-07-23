@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
-class CustomBackButton extends StatelessWidget {
-  const CustomBackButton({super.key});
-
+class CustomDefaultButton extends StatelessWidget {
+  const CustomDefaultButton(
+      {super.key, required this.iconData, required this.onPressed});
+  final IconData iconData;
+  final void Function() onPressed;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -13,9 +15,7 @@ class CustomBackButton extends StatelessWidget {
           width: 60,
           height: 60,
           child: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
+            onPressed: onPressed,
             style: ButtonStyle(
               shape: WidgetStateProperty.all(
                 RoundedRectangleBorder(
@@ -27,8 +27,8 @@ class CustomBackButton extends StatelessWidget {
                 ),
               ),
             ),
-            icon: const Icon(
-              Icons.arrow_back_ios_new_rounded,
+            icon: Icon(
+              iconData,
               color: Colors.black,
               size: 30,
             ),

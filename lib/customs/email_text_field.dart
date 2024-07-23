@@ -4,10 +4,15 @@ import 'package:firebase_note/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class EmailTextField extends StatelessWidget {
-  const EmailTextField(
-      {super.key, required this.hintText, required this.controller});
+  const EmailTextField({
+    super.key,
+    required this.hintText,
+    required this.controller,
+  });
+
   final String hintText;
   final TextEditingController controller;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(

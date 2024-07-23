@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_note/cubits/auth_cubit/auth_cubit.dart';
+import 'package:firebase_note/screens/create_note_screen/create_note_screen.dart';
 import 'package:firebase_note/screens/home_screen/home_screen.dart';
 import 'package:firebase_note/screens/login_screen/login_screen.dart';
 import 'package:firebase_note/screens/register_screen/register_screen.dart';
@@ -48,6 +49,7 @@ class FirebaseNote extends StatelessWidget {
           Routes.kVerificationScreen: (context) => const VerificationScreen(),
           Routes.kResetPasswordScreen: (context) => const ResetPassword(),
           Routes.kSettingsScreen: (context) => const SettingsScreen(),
+          Routes.kCreateNoteScreen: (context) => const CreateNoteScreen(),
         },
       ),
     );

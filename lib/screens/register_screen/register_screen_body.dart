@@ -50,7 +50,7 @@ class _RegisterScreenBodyState extends State<RegisterScreenBody> {
             isLoading = true;
           });
         } else if (state is RegisterSuccess) {
-          Navigator.of(context).pushNamed(Routes.kVerificationScreen);
+          Navigator.pushNamed(context,Routes.kVerificationScreen);
           setState(() {
             isLoading = false;
           });
@@ -104,8 +104,8 @@ class _RegisterScreenBodyState extends State<RegisterScreenBody> {
                     title: 'Already have an account? ',
                     subTitle: 'Login Now',
                     onTap: () {
-                      Navigator.of(context).pop();
-                      Navigator.of(context).pushNamed(Routes.kLoginScreen);
+                      Navigator.pop(context);
+                      Navigator.pushNamed(context,Routes.kLoginScreen);
                     },
                   )
                 ],

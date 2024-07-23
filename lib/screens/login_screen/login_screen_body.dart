@@ -46,7 +46,7 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
             isLoading = true;
           });
         } else if (state is LoginSuccess) {
-          Navigator.of(context).pushNamed(Routes.kHomeScreen);
+          Navigator.pushNamed(context,Routes.kHomeScreen);
           setState(() {
             isLoading = false;
           });
@@ -96,8 +96,8 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
                     title: 'Don\'t have an account? ',
                     subTitle: 'Register Now',
                     onTap: () {
-                      Navigator.of(context).pop();
-                      Navigator.of(context).pushNamed(Routes.kRegisterScreen);
+                      Navigator.pop(context);
+                      Navigator.pushNamed(context,Routes.kRegisterScreen);
                     },
                   )
                 ],

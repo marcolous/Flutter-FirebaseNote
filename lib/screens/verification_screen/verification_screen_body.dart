@@ -82,7 +82,7 @@ class _VerificationScreenBodyState extends State<VerificationScreenBody> {
         setState(() {
           isLoading = false;
         });
-        Navigator.of(context).pushNamed(Routes.kHomeScreen);
+        Navigator.pushNamed(context,Routes.kHomeScreen);
       } else {
         await Future.delayed(const Duration(seconds: 3));
         _checkEmailVerified();

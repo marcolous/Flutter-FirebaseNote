@@ -45,6 +45,13 @@ class Style {
       fontFamily: 'Urbanist',
     );
   }
+  static TextStyle style23(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveFontSize(context, fontSize: 23),
+      fontWeight: FontWeight.w400,
+      fontFamily: 'Urbanist',
+    );
+  }
 
   static TextStyle style30(BuildContext context) {
     return TextStyle(
@@ -58,6 +65,13 @@ class Style {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 43),
       fontWeight: FontWeight.w600,
+      fontFamily: 'Urbanist',
+    );
+  }
+  static TextStyle style48(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveFontSize(context, fontSize: 48),
+      fontWeight: FontWeight.w400,
       fontFamily: 'Urbanist',
     );
   }

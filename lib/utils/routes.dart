@@ -6,5 +6,6 @@ class Routes {
   static const String kVerificationScreen = 'verificationScreen';
   static const String kResetPasswordScreen = 'resetPasswordScreen';
   static const String kSettingsScreen = 'settingsScreen';
+  static const String kCreateNoteScreen = 'createNoteScreen';
 
 }

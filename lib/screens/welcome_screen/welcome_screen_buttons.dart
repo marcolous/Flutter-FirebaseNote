@@ -26,7 +26,7 @@ class WelocmeScreenButtons extends StatelessWidget {
             CustomButton(
               title: 'Login',
               onPressed: () =>
-                  Navigator.of(context).pushNamed(Routes.kLoginScreen),
+                  Navigator.pushNamed(context,Routes.kLoginScreen),
             ),
             const Gap(15),
             const WelcomeRegisterButton()

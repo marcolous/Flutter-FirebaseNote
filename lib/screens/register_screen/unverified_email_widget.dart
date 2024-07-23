@@ -16,7 +16,7 @@ class UnVerifiedEmailWidget extends StatelessWidget {
           ShowSnackBar.show(context, 'Email Already Verified.');
           return;
         } else {
-          Navigator.of(context).pushNamed(Routes.kVerificationScreen);
+          Navigator.pushNamed(context,Routes.kVerificationScreen);
         }
       },
       child: Align(

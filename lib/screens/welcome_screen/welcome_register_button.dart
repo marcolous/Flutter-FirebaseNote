@@ -12,7 +12,7 @@ class WelcomeRegisterButton extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 6,
       child: ElevatedButton(
-        onPressed: () => Navigator.of(context).pushNamed(Routes.kRegisterScreen),
+        onPressed: () => Navigator.pushNamed(context,Routes.kRegisterScreen),
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
